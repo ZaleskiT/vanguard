@@ -1,7 +1,8 @@
-/* CSS BY YOUR NAME */
+/* CSS BY YOUR Tim Zaleski */
 
 /* IMPORTED FONTS*/
-/* IMPORT "INTER" FROM GOOGLE FONTS"
+/* IMPORT "INTER" FROM GOOGLE FONTS"*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 /* CSS RESET */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -65,6 +66,15 @@ table {
 /* GLOBAL STYLES (MOBILE FIRST (SMALL) */
 
 /* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
+html {
+  min-width: 400px;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--white);
+  color: var(--black);
+}
 
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 .container {
@@ -73,26 +83,206 @@ table {
     margin: 0 auto;
 }
 
+header {
+  background-color: var(--black);
+  border-bottom: 2px solid var(--blue);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header nav {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+  display: flex;
+}
+
+h2 {
+  margin: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideDown 0.6s ease-out forwards;
+  animation-delay: 0.3s;  
+}
+
+h3 {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideDown 0.6s ease-out forwards;
+  animation-delay: 0.3s;  
+}
+
 /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
- {
+ #hero {
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
     height: 80vh;
     display: grid;
     place-items: center;
     text-align: center;
     padding: 1rem;
-    overflow: hidden;
+}
+
+.hero-container h2 {
+  color: var(--white);
+  font-size: 2rem;
+}
+
+.hero-container p {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background-color: var(--blue);
+  color: var(--white);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 
+    transform 0.2s ease-in-out,
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background-color: var(--red);
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
- {
+.logo::before {
     content: "";
-
+    display: block;
     left:-.5rem;
     width: 3.75rem;
     height: 3.75rem;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
 
+}
+
+.menu-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--white);
+}
+
+.nav-links {
+  display: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase; /* I'm assuming we aren't supposed to manually change the content here */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-links a:hover {
+  background-color: var(--blue);
+  color: var(--black);
+}
+
+#about h2 {
+  font-size: 1.5rem;
+}
+
+#about p {
+  line-height: 1.6;
+}
+
+.offer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.offer-card {
+  background-color: var(--blue);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: var(--white);
+}
+
+.offer-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;;
+}
+
+.offer-card p {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+#results{
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+#results h2 {
+  padding-top: 1rem;
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.profits, .growth {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.profits h3, .growth h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border: 1px var(--charcoal);
+  text-align: center;
+}
+
+thead th {
+  background-color: var(--charcoal);
+  border: 1px solid var(--charcoal);
+  padding: 0.5rem;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--black);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--charcoal);
+}
+
+td {
+  border: 1px solid var(--charcoal);
+  padding: 0.5rem;
 }
 /* THIS ONE IS DONE FOR YOU */
 #bar-chart {
@@ -113,7 +303,7 @@ table {
     background: var(--charcoal);
     border-radius: 10px;
     position: relative;
-    transition: ;
+    transition: height 0.5s ease-in-out;
     height: 0;
 }
 /* THIS ONE IS DONE FOR YOU */
@@ -140,22 +330,144 @@ table {
     animation: stepUp 1s ease-in-out forwards;
 }
 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CONTACT SECTION */
+#contact {
+  background-color: var(--black);
+  padding: 2rem 0;
+}
+#contact h2,
+#contact p {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+/* stack form fields 1-column */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+/* labels sit above inputs */
+.form-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.message-row .btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* inputs & textarea full-width */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.25rem;
+  border: 1px solid var(--blue);
+  border-radius: 0.25rem;
+  font-family: var(--font);
+  font-size: 1rem;
+}
+
+/* submit button full width */
+.contact-form .btn {
+  width: 100%;
+  text-align: center;
+}
+
+footer {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 1rem 0;
+}
+
+footer .footer-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; 
+}
+
+.footer-container p {
+  margin-bottom: 0.5rem;
+}
+
+.footer-container a {
+  color: var(--blue);
+  text-decoration: none;
+}
 
 /* MEDIA QUERIES (MEDIUM) */ 
 
-    #results {
-        grid-template-columns: 1fr 1fr;
-    }
-    .results-container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .results-table {
-        width: 50%;
-    }
-    .bar-chart {
-        width: 50%;
-    }
+@media (min-width: 800px) {
+  .nav-links {
+    display: flex;
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .offer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .results-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 
+}
 
 /* MEDIA QUERIES (LARGE) */
+@media (min-width: 1024px) {
+  .offer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  thead th, td {
+    padding: 1rem;
+  }
+
+  #contact {
+    padding: 3rem 0;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .form-row .form-group {
+    flex: 1;
+  }
+  .form-group.full-width {
+    flex: 1;
+  }
+
+  .form-row.message-row .form-group {
+    flex: 1;
+  }
+
+  .form-row.message-row .btn {
+    flex: 0 0 auto;
+    width: 48%;
+    margin-top: 1rem;
+    align-self: flex-start; 
+  }
+
+  .form-row.message-row {
+    gap: 2rem;
+  }
+}
